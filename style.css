@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "VGA";
+  src: url("./assets/fonts/dos.ttf");
+}
+
+@font-face {
+  font-family: "Unibody";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./assets/fonts/Unibody8Pro-Regular.otf");
+}
+
+@font-face {
+  font-family: "Unibody";
+  font-weight: 400;
+  font-style: italic;
+  src: url("./assets/fonts/Unibody8Pro-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: "Unibody";
+  font-weight: 700;
+  font-style: normal;
+  src: url("./assets/fonts/square_stone-7.ttf");
+}
+
+@font-face {
+  font-family: "Unibody Small Caps";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./assets/fonts/Unibody8Pro-RegularSmallCaps.otf");
+}
+
+body {
+  font-family: "VGA";
+  background: black;
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  padding: 3rem 0;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+h1 {
+  font-family: "Unibody";
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFFF00;
+  width: 100%;
+  border-top: 3rem solid #0000FF;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+h1 .four {
+  background: #FF0000;
+  padding: 0 2rem;
+}
+
+#assignments h1 {
+  background: #00FF00;
+  color: #000000;
+  border-top: none;
+}
+
+#assignments h3 {
+  text-align: center;
+  color: #00FFFF;
+}
+
+#assignments h4 {
+  background: #00FFFF;
+  color: black;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  text-transform: uppercase;
+  color: #00FF00;
+  font-size: 2rem;
+}
+
+p {
+  line-height: 1.6rem;
+}
+
+.container {
+
+}
+
+.list {
+  background: #FFFFFF;
+  padding: 1rem 0;
+}
+
+.list-group-item {
+  background: transparent;
+  border: none;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.channel {
+  padding: 0 1rem;
+  background: #00000090;
+  color: #FFFFFF;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 3rem;
+  z-index: 1;
+}
+
+.visible {
+  opacity: 1;
+}
