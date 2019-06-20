@@ -16,6 +16,7 @@ function setup() {
   home = select("#home");
   lectures = select("#lectures");
   assignments = select("#assignments");
+  allChannels = select("#all-channels");
 
   createCanvas(windowWidth,windowHeight);
   frameRate(30);
@@ -25,25 +26,26 @@ function setup() {
 
   lectures.hide();
   assignments.hide();
+  allChannels.hide();
 }
 
 function draw() {
   // ciao.hide();
 
-  for (var x = 0; x < width/2; x += 6) {
-
-    for (var y = 0; y < height/2; y += 6){
-      var col = random(0,9);
-      fill(col);
-      // line bwlow eliminates the lines(stroke) around the boxes (0)
-      strokeWeight(0);
-      // shape and one dimension
-      rect(x, y, 6, 6);
-      rect(x+width/2, y, 6, 6);
-      rect(x, y+height/2, 6, 6);
-      rect(x+width/2, y+height/2, 6, 6);
-    }
-  }
+  // for (var x = 0; x < width/2; x += 6) {
+  //
+  //   for (var y = 0; y < height/2; y += 6){
+  //     var col = random(0,9);
+  //     fill(col);
+  //     // line bwlow eliminates the lines(stroke) around the boxes (0)
+  //     strokeWeight(0);
+  //     // shape and one dimension
+  //     rect(x, y, 6, 6);
+  //     rect(x+width/2, y, 6, 6);
+  //     rect(x, y+height/2, 6, 6);
+  //     rect(x+width/2, y+height/2, 6, 6);
+  //   }
+  // }
 }
 
 function keyTyped() {
@@ -60,10 +62,9 @@ function keyTyped() {
     home.show();
     lectures.hide();
     assignments.hide();
+    allChannels.hide();
     return true;
-  }
-
-  if ( JSON.stringify(code) == JSON.stringify(lecturesIndex) ) {
+  } else if ( JSON.stringify(code) == JSON.stringify(lecturesIndex) ) {
     history.pushState(null, null, '#lectures');
     print("LECTURES");
     code = [];
@@ -72,10 +73,9 @@ function keyTyped() {
     home.hide();
     lectures.show();
     assignments.hide();
+    allChannels.hide();
     return true;
-  }
-
-  if ( JSON.stringify(code) == JSON.stringify(assignmentsIndex) ) {
+  } else if ( JSON.stringify(code) == JSON.stringify(assignmentsIndex) ) {
     history.pushState(null, null, '#assignments');
     print("ASSIGNMENTS");
     code = [];
@@ -84,6 +84,18 @@ function keyTyped() {
     home.hide();
     lectures.hide();
     assignments.show();
+    allChannels.hide();
+    return true;
+  } else if ( code.length > 2 ){
+    history.pushState(null, null, '#404');
+    print("404 Not found");
+    code = [];
+    print(code);
+
+    home.hide();
+    lectures.hide();
+    assignments.hide();
+    allChannels.show();
     return true;
   }
 
