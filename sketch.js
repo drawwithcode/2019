@@ -12,40 +12,42 @@ function preload(){
   // put preload code here
 }
 
+
+
 function setup() {
   home = select("#home");
   lectures = select("#lectures");
   assignments = select("#assignments");
+  caseStudies = select("#case-studies");
   allChannels = select("#all-channels");
 
   createCanvas(windowWidth,windowHeight);
+  pixelDensity(1);
   frameRate(30);
   noStroke();
   background(0);
-  colorMode(RGB, 8);
+  colorMode(RGB, 4);
 
   lectures.hide();
   assignments.hide();
+  caseStudies.hide();
   allChannels.hide();
 }
 
 function draw() {
-  // ciao.hide();
+  loadPixels();
 
-  // for (var x = 0; x < width/2; x += 6) {
-  //
-  //   for (var y = 0; y < height/2; y += 6){
-  //     var col = random(0,9);
-  //     fill(col);
-  //     // line bwlow eliminates the lines(stroke) around the boxes (0)
-  //     strokeWeight(0);
-  //     // shape and one dimension
-  //     rect(x, y, 6, 6);
-  //     rect(x+width/2, y, 6, 6);
-  //     rect(x, y+height/2, 6, 6);
-  //     rect(x+width/2, y+height/2, 6, 6);
-  //   }
-  // }
+  for (var x = 0; x < width; x++) {
+    for (var y = 0; y < height; y++) {
+      var i = (x + y * width) * 4;
+      pixels[i + 0] = random(255);
+      pixels[i + 1] = random(255);
+      pixels[i + 2] = random(255);
+      pixels[i + 3] = 255;
+    }
+  }
+
+  updatePixels();
 }
 
 function keyTyped() {
@@ -73,6 +75,7 @@ function keyTyped() {
     home.hide();
     lectures.show();
     assignments.hide();
+    caseStudies.hide();
     allChannels.hide();
     return true;
   } else if ( JSON.stringify(code) == JSON.stringify(assignmentsIndex) ) {
@@ -95,6 +98,7 @@ function keyTyped() {
     home.hide();
     lectures.hide();
     assignments.hide();
+    caseStudies.hide();
     allChannels.show();
     return true;
   }
