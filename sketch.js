@@ -19,7 +19,7 @@ function setup() {
   lectures = select("#lectures");
   assignments = select("#assignments");
   caseStudies = select("#case-studies");
-  allChannels = select("#all-channels");
+  allChannels = select("#guide");
 
   createCanvas(windowWidth,windowHeight);
   pixelDensity(1);
@@ -28,10 +28,6 @@ function setup() {
   background(0);
   colorMode(RGB, 4);
 
-  lectures.hide();
-  assignments.hide();
-  caseStudies.hide();
-  allChannels.hide();
 }
 
 function draw() {
@@ -61,10 +57,7 @@ function keyTyped() {
     code = [];
     print(code);
 
-    home.show();
-    lectures.hide();
-    assignments.hide();
-    allChannels.hide();
+    selectSection("#home")
     return true;
   } else if ( JSON.stringify(code) == JSON.stringify(lecturesIndex) ) {
     history.pushState(null, null, '#lectures');
@@ -72,11 +65,7 @@ function keyTyped() {
     code = [];
     print(code);
 
-    home.hide();
-    lectures.show();
-    assignments.hide();
-    caseStudies.hide();
-    allChannels.hide();
+    selectSection("#lectures")
     return true;
   } else if ( JSON.stringify(code) == JSON.stringify(assignmentsIndex) ) {
     history.pushState(null, null, '#assignments');
@@ -84,22 +73,15 @@ function keyTyped() {
     code = [];
     print(code);
 
-    home.hide();
-    lectures.hide();
-    assignments.show();
-    allChannels.hide();
+    selectSection("#assignments")
     return true;
   } else if ( code.length > 2 ){
-    history.pushState(null, null, '#404');
+    history.pushState(null, null, '#tv-guide');
     print("404 Not found");
     code = [];
     print(code);
 
-    home.hide();
-    lectures.hide();
-    assignments.hide();
-    caseStudies.hide();
-    allChannels.show();
+    selectSection("#tv-guide")
     return true;
   }
 

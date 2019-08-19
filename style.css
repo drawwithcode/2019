@@ -43,6 +43,8 @@ body {
   color: #FFFFFF;
   font-size: 1.5rem;
   padding: 3rem 0;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
   /* animation: textShadow 1.6s infinite; */
 }
 
@@ -88,8 +90,8 @@ canvas {
 }
 
 h1 {
-  font-family: "Unibody";
-  font-size: 5rem;
+  font-family: "Unibody", sans-serif;
+  font-size: 6rem;
   text-transform: uppercase;
   font-weight: 700;
   color: #FFFF00;
@@ -97,32 +99,58 @@ h1 {
   background: #0000FF;
   text-align: center;
   margin-bottom: 2rem;
+  padding: 1rem 0;
 }
 
 h3 {
   margin-bottom: 2rem;
 }
 
-h1 .four {
-  background: #FF0000;
-  padding: 0 2rem;
-}
-
-.navigation {
-  background: #0000FF !important;
-  color: #FFFFFF !important;
+#home h1 {
+  color: #FFFF00;
+  line-height: 0.6;
+  border: none;
+  background: #0000FF;
+  margin-bottom: 2rem;
 }
 
 #lectures h1 {
   background: #FF0000;
   border-bottom: none;
-  font-size: 10rem;
   line-height: 0.6;
 }
 
 #lectures h3 {
   color: #00FFFF;
   text-align: center;
+}
+
+#lectures-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lecture {
+  margin-bottom: 3rem;
+}
+
+.lecture a {
+  text-transform: uppercase;
+}
+
+.topics-list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.topics-list > li {
+  background: #00FFFF;
+  color: #000000;
+  padding-top: 0;
+  display: inline-block;
+  padding: 0 0.25rem 0.1rem;
+  margin: 0 0.25rem 0.25rem 0;
+  text-transform: uppercase;
 }
 
 #assignments h1 {
@@ -143,23 +171,6 @@ h1 .four {
   padding: 0.5rem;
   text-align: center;
   text-transform: uppercase;
-}
-
-#home h1 {
-  font-size: 10rem;
-  color: #FFFF00;
-  line-height: 0.6;
-  border: none;
-  background: #0000FF;
-  margin-bottom: 2rem;
-}
-
-#home h2 {
-  text-transform: uppercase;
-  color: #FFFF00;
-  transform: scaleX(2);
-  letter-spacing: -2px;
-  transform-origin: 0 0;
 }
 
 #all-channels h1 {
@@ -196,12 +207,12 @@ h1 .four {
 
 #all-channels .list {
   background: #0000FF;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 #all-channels .list-group-item {
   color: #FFFFFF;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 h3 {
@@ -229,13 +240,34 @@ a:hover {
 
 .list {
   background: #FFFFFF;
-  padding: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 .list-group-item {
   background: transparent;
   border: none;
   color: #000000;
+}
+
+.list-group-item span {
+  color: #FF0000;
+}
+
+#guide {
+  position: sticky;
+  top: 2rem;
+}
+
+#guide ul {
+  padding: 0;
+}
+
+.navigation {
+  background: #0000FF;
+}
+
+.navigation .list-group-item {
+  color: #FFFFFF;
 }
 
 .list-group-item span {
@@ -255,6 +287,16 @@ a:hover {
 
 .visible {
   opacity: 1;
+}
+
+@media only screen and (max-device-width : 375px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  #home h1, #lectures h1, #assignments h1 {
+    font-size: 4rem;
+  }
 }
 
 @keyframes flicker {
