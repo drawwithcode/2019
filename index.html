@@ -24,13 +24,13 @@
       <div class="col-md-5">
         <div id="guide" class="list list-group-flush">
           <ul>
-            <li class="list-group-item"><span>101</span> Lectures</li>
-            <li class="list-group-item"><span>201</span> Assignments</li>
-            <li class="list-group-item"><span>301</span> Case studies</li>
-            <li class="list-group-item"><span>401</span> Team Projects</li>
+            <li class="list-group-item" onclick="selectSection('#lectures')"><span>101</span> Lectures</li>
+            <li class="list-group-item" onclick="selectSection('#assignments')"><span>201</span> Assignments</li>
+            <li class="list-group-item" onclick="selectSection('#cases')"><span>301</span> Case studies</li>
+            <li class="list-group-item" onclick="selectSection('#projects')"><span>401</span> Team Projects</li>
           </ul>
         </div>
-        <div class="list navigation list-group-flush">
+        <div class="navigation list list-group-flush">
         <ul>
           <li class="list-group-item">777 Navigation</li>
         </ul>
@@ -51,7 +51,7 @@
   <section id="lectures" class="container">
     <div class="row">
       <div class="col-12">
-        <p>All editions at <a href="https://drawwithcode.github.io/" target="_blank">https://drawwithcode.github.io/</a>
+        <p>Past editions <a href="https://drawwithcode.github.io/" target="_blank">https://drawwithcode.github.io/</a>
         <h1>Lectures</h1>
         <h3>All slides of lectures will be stored on this page.</h3>
       </div>
@@ -78,28 +78,26 @@
   <section id="assignments" class="container">
     <div class="row">
       <div class="col-12">
-        <p>All editions at <a href="https://drawwithcode.github.io/" target="_blank">https://drawwithcode.github.io/</a>
-        <h1 class="assignments-title">Assignments</h1>
-        <h3>This page will be updated on a weekly basis</h3>
+        <p>Past editions <a href="https://drawwithcode.github.io/" target="_blank">https://drawwithcode.github.io/</a>
+        <h1>Assignments</h1>
+        <h3>All slides of lectures will be stored on this page.</h3>
       </div>
     </div>
     <div class="row">
       <div class="col-md-5">
-        <h4>100 Pagina iniziale</h4>
-        <p>
-        At the end of each lecture students are asked to deliver an assignment putting into practice the notions learned during classes.
-        </p>
-      </div>
-      <div class="col-12">
         <div id="guide" class="list list-group-flush">
           <ul>
-            <li class="list-group-item">101 Lectures</li>
-            <li class="list-group-item">201 Assignments</li>
-            <li class="list-group-item">301 Case studies</li>
-            <li class="list-group-item">401 Team Projects</li>
-            <li class="list-group-item">501 Past editions</li>
+            <li class="homepage list-group-item" onclick="selectSection('#home')"><span>100<span> Home Page</li>
+            <li class="list-group-item" onclick="selectSection('#lectures')"><span>101</span> Lectures</li>
+            <li class="list-group-item" onclick="selectSection('#assignments')"><span>201</span> Assignments</li>
+            <li class="list-group-item" onclick="selectSection('#cases')"><span>301</span> Case studies</li>
+            <li class="list-group-item" onclick="selectSection('#projects')"><span>401</span> Team Projects</li>
           </ul>
         </div>
+      </div>
+      <div class="col-md-7">
+        <ul id="assignments-list">
+        </ul>
       </div>
     </div>
   </section>
@@ -136,16 +134,16 @@
   <section id="tv-guide" class="container">
     <div class="row">
       <div class="col-12">
-        <p>All editions at <a href="https://drawwithcode.github.io/" target="_blank">https://drawwithcode.github.io/</a>
-        <h1 class="assignments-title">Televideo</h1>
-        <h2>List of all pages in the website. Type their code to get to them.</h2>
+        <p>Past editions <a href="https://drawwithcode.github.io/" target="_blank">https://drawwithcode.github.io/</a>
+        <h1>TV Guide</h1>
+        <h2>List of all pages in the website. Type their code to get to them (or just tap on mobile)</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <h4>100 Home Page</h4>
         <div class="list">
           <ul class="list-group-flush">
+            <li class="homepage list-group-item" onclick="selectSection('#home')"><span>100<span> Home Page</li>
             <li class="list-group-item"><span>101 Lectures</span>
               <br>Each week a lecture will introduce new concepts and tools to your coding skills toolkit. Participating to lectures is mandatory.</li>
             <li class="list-group-item"><span>201 Assignments</span>
