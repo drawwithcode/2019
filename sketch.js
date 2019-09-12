@@ -31,19 +31,19 @@ function setup() {
 }
 
 function draw() {
-  loadPixels();
-
-  for (var x = 0; x < width; x++) {
-    for (var y = 0; y < height; y++) {
-      var i = (x + y * width) * 4;
-      pixels[i + 0] = random(255);
-      pixels[i + 1] = random(255);
-      pixels[i + 2] = random(255);
-      pixels[i + 3] = 255;
-    }
-  }
-
-  updatePixels();
+  // loadPixels();
+  //
+  // for (var x = 0; x < width; x++) {
+  //   for (var y = 0; y < height; y++) {
+  //     var i = (x + y * width) * 4;
+  //     pixels[i + 0] = random(255);
+  //     pixels[i + 1] = random(255);
+  //     pixels[i + 2] = random(255);
+  //     pixels[i + 3] = 255;
+  //   }
+  // }
+  //
+  // updatePixels();
 }
 
 function keyTyped() {
