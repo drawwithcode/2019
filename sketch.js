@@ -1,18 +1,13 @@
 let homeIndex = ["1", "0", "0"];
 let lecturesIndex = ["1", "0", "1"];
 let assignmentsIndex = ["2", "0", "1"];
+let caseIndex = ["3", "0", "1"];
 let code = [];
 let page = location.hash;
 
 let home;
 let lectures;
 let assignments;
-
-function preload(){
-  // put preload code here
-}
-
-
 
 function setup() {
   home = select("#home");
@@ -31,19 +26,19 @@ function setup() {
 }
 
 function draw() {
-  // loadPixels();
-  //
-  // for (var x = 0; x < width; x++) {
-  //   for (var y = 0; y < height; y++) {
-  //     var i = (x + y * width) * 4;
-  //     pixels[i + 0] = random(255);
-  //     pixels[i + 1] = random(255);
-  //     pixels[i + 2] = random(255);
-  //     pixels[i + 3] = 255;
-  //   }
-  // }
-  //
-  // updatePixels();
+  loadPixels();
+
+  for (var x = 0; x < width; x++) {
+    for (var y = 0; y < height; y++) {
+      var i = (x + y * width) * 4;
+      pixels[i + 0] = random(255);
+      pixels[i + 1] = random(255);
+      pixels[i + 2] = random(255);
+      pixels[i + 3] = 255;
+    }
+  }
+
+  updatePixels();
 }
 
 function keyTyped() {
@@ -75,6 +70,16 @@ function keyTyped() {
 
     selectSection("#assignments")
     return true;
+  } else if ( JSON.stringify(code) == JSON.stringify(caseIndex) ) {
+
+    history.pushState(null, null, '#case-studies');
+    print("CASE STUDIES");
+    code = [];
+    print(code);
+
+    selectSection("#case-studies")
+    return true;
+
   } else if ( code.length > 2 ){
     history.pushState(null, null, '#tv-guide');
     print("404 Not found");
