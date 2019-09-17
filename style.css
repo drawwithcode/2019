@@ -172,6 +172,10 @@ h3 {
   text-transform: uppercase;
 }
 
+#assignments-list {
+  list-style: none;
+}
+
 #assignments .student-assignment {
     margin: 0 7px;
     font-size: 1rem;
@@ -181,15 +185,18 @@ h3 {
 
 #assignments .assignment-picture {
   display: block;
-  width: 72px;
-  height: 72px;
-  border-radius: 3px;
+  width: 100px;
+  height: 100px;
   background-size: cover;
   background-position: center center;
   background-color: var(--green);
 }
 
-#assignments .assignment>div {
+.assignment p {
+  width: 100%;
+}
+
+#assignments .assignment div {
   display: flex;
   flex-wrap: wrap;
 }
@@ -283,6 +290,10 @@ a:hover {
   padding: 0;
 }
 
+#guide li:hover {
+  cursor: pointer
+}
+
 .navigation ul {
   background: #0000FF;
   padding-left: 0;
@@ -347,6 +358,10 @@ footer .credits {
 
   #home h1, #lectures h1, #assignments h1 {
     font-size: 4rem;
+  }
+
+  #guide {
+    position: inherit;
   }
 }
 
