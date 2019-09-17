@@ -133,6 +133,10 @@ h3 {
   margin-bottom: 3rem;
 }
 
+.lecture:hover {
+  cursor: pointer;
+}
+
 .lecture a {
   text-transform: uppercase;
 }
