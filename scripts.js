@@ -17,29 +17,34 @@ function init() {
 
 function showInfo(data, tabletop) {
 
+  console.log(data.lectures.elements)
+
   let lecture = d3.select('#lectures-list').selectAll('.lecture').data(data.lectures.elements, function(d) {
     return d['lecture #']
   })
   lecture.exit();
+
   lecture = lecture.enter().append('li')
     .classed('lecture', true)
     .html(function(d) {
-      let topicsList = '<ul class="topics-list list-group-flush">'
-      let topics = ``;
-      d.topics.split(';').forEach(function(e) {
-        topics += `<li>${e}</li>`;
-      })
-      topicsList += topics
-      topicsList += '</ul>'
-      let finalHtml = `<a target="_blank" href ="">${d['lecture #']}. ${d.title}</a><p>${d.subtitle}</p>` + topicsList;
-      return finalHtml
+      if (d.link != "") {
+        console.log(d.link);
+        let topicsList = '<ul class="topics-list list-group-flush">'
+        let topics = ``;
+        d.topics.split(';').forEach(function(e) {
+          topics += `<li>${e}</li>`;
+        })
+        topicsList += topics
+        topicsList += '</ul>'
+        let finalHtml = `<a target="_blank" href ="">${d['lecture #']}. ${d.title}</a><p>${d.subtitle}</p>` + topicsList;
+        return finalHtml
+      }
     })
     .merge(lecture)
     .on('click', function(d){
       if (d.link) {
         window.open(d.link);
       }
-
     })
 
   // console.log(data.assignments.elements);
