@@ -5,19 +5,38 @@ function selectSection(id) {
 }
 selectSection('#home')
 
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1R8HPy8LY0D4uGrtvjNobZKihMkcKhAZAGikU4rI5k3w/edit?usp=sharing';
+// var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1R8HPy8LY0D4uGrtvjNobZKihMkcKhAZAGikU4rI5k3w/edit?usp=sharing';
 
 function init() {
-  Tabletop.init({
-    key: publicSpreadsheetUrl,
-    callback: showInfo,
-    simpleSheet: false
+  // Tabletop.init({
+  //   key: publicSpreadsheetUrl,
+  //   callback: showInfo,
+  //   simpleSheet: false
+  // })
+
+  Promise.all([
+    d3.tsv("./assets/Creative Coding 19-20 Calendar, deliverableas, team projects, presentations - lectures.tsv"),
+    d3.tsv("./assets/Creative Coding 19-20 Calendar, deliverableas, team projects, presentations - assignments.tsv"),
+    d3.tsv("./assets/Creative Coding 19-20 Calendar, deliverableas, team projects, presentations - team projects.tsv")
+  ]).then(([lectures, assignments, teamProjects])=>{
+    const data = {
+      "lectures": {
+        "elements": lectures
+      },
+      "assignments": {
+        "elements": assignments
+      },
+      "team projects": {
+        "elements": teamProjects
+      }
+    }
+    console.log(data)
+    showInfo(data)
+
   })
 }
 
 function showInfo(data, tabletop) {
-
-  console.log(data.lectures.elements)
 
   let lecture = d3.select('#lectures-list').selectAll('.lecture').data(data.lectures.elements, function(d) {
     return d['lecture #']
@@ -28,7 +47,6 @@ function showInfo(data, tabletop) {
     .classed('lecture', true)
     .html(function(d) {
       if (d.link != "") {
-        console.log(d.link);
         let topicsList = '<ul class="topics-list list-group-flush">'
         let topics = ``;
         d.topics.split(';').forEach(function(e) {
@@ -51,7 +69,7 @@ function showInfo(data, tabletop) {
 
   let studentAssignment;
 
-  let assignment = d3.select('#assignments-list').selectAll('.assignment').data(data.assignments.columnNames.slice(3, data.assignments.columnNames.length))
+  let assignment = d3.select('#assignments-list').selectAll('.assignment').data(data.assignments.elements.columns.slice(3, data.assignments.elements.columns.length))
   assignment.exit();
   assignment = assignment.enter().append('li')
     .classed('assignment', true)
